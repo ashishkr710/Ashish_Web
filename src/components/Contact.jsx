@@ -75,6 +75,20 @@ const Contact = () => {
             className="bg-tertiary p-4 text-white border font-medium"
           />
           <button
+             onClick={(e) => {
+              e.preventDefault();
+              setLoading(true);
+              setTimeout(() => {
+                setLoading(false);
+                alert('Message sent successfully!');
+                toastify.success("Message sent successfully!");
+                setForm({
+                name: "",
+                email: "",
+                message: ""
+                });
+              }, 2000);
+              }}
             type='submit'
             className='bg-tertiary py-3 px-8 w-fit text-white font-bold shadow-md shadow-primary '
           >
